@@ -1,144 +1,195 @@
 @font-face {
-    font-family: 'Norse Bold';
-    src: url('./assets/fonts/Norse-Bold.otf') format('opentype');
+    font-family: 'Norse-bold';
+    src: url('./assets/fonts/Norse-Bold.otf');
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+  
+ol, ul {
+    list-style: none;
+}
+  
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 :root {
-    --main-spacing: 50px;
-    --main-max-width: 600px;
+    --logo-font-size:clamp(2rem,5vw,4rem);
+    --text-font-size:clamp(1.1rem,3vw,1.3rem);
+    --label-font-size:clamp(0.6rem,2vw,0.7rem);
+    --button-font-size:clamp(0.7rem,3vw,1rem);
+    --logo-color:hsl(0, 0%, 98%);
+    --bg-color:hsl(0, 0%, 98%);
+    --form-bg-color:hsl(0, 0%, 100%);
+    --button-color:#596D48;
+    --label-font-color:hsla(0, 0%, 0%, 0.7);
+    --main-content-padding:clamp(8px,5vw, 50px);
+    --image-content-padding:2vw;
 }
 
 body {
     display: flex;
-    height: 100vh;
+    height: 100dvh;
+    width: 100dvw;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
-    color: inherit;
-}
-
-.container-img {
-    background-image: url("./assets/images/bg.jpg");
-    background-size: 100vh;
-    background-position: center;
-    color: white;
+.image-container {
     position: relative;
-    flex: 0 10 auto;
-    width: 600px;
+    flex: 1;
+    height: 100dvh;
+    max-width: 600px;
+    background-image: url(./assets/images/bg.jpg);
+    background-position: center;
+    background-size: auto 100%;
 }
 
-.container-logo {
-    background-color: hsla(0, 0%, 0%, 0.5);
+.logo-bg {
     display: flex;
-    height: 15%;
-    align-items: center;
-    margin: 25vh 0 0 0;
-    padding: 0 1.5rem;
     justify-content: center;
-}
-
-.logo-name {
-    color: inherit;
-    font-family: "Norse Bold";
-    font-size: 4rem;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    margin-top: 20vh;
+    background-color: hsla(0, 0%, 0%, 0.5);
 }
 
 img {
-    height: 80%;
+    height: 75%;
+}
+
+.logo-text {
+    font-family: 'Norse-bold';
+    font-size: 8vh;
+    color: var(--logo-color);
 }
 
 .photo-credits {
-    color: inherit;
     position: absolute;
-    bottom: 5px;
-    text-align: center;
-    font-size: 0.7rem;
     width: 100%;
+    bottom: 1vh;
+    color: var(--logo-color);
+    font-size: 13px;
+    text-align: center;
+    text-shadow: 5px 5px 5px black;
 }
 
-.main {
-    background-color: hsl(0, 0%, 98%);
-    color: hsl(0, 0%, 20%);
-    flex: 1 1 auto;
+.photo-credits a {
+    color: inherit;
+}
+
+.main-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px 0;
+    background-color: var(--bg-color);
 }
 
-.main>p {
-    font-weight: 600;
-    font-size: calc(0.9em + 0.4vw);
-    line-height: 1.2;
-    margin: 0 var(--main-spacing);
-    max-width: var(--main-max-width);
+.main-content>p {
+    margin: 0 var(--main-content-padding);
+    font-size: var(--text-font-size);
+    font-weight: bold;
+    max-width: 700px;
 }
 
-.main>p:nth-child(3) {
-    margin: 1rem var(--main-spacing) 2rem;  
-}
-
-.main>div {
-    font-weight: 600;
-    font-size: 1rem;
-    margin: 1rem var(--main-spacing);
-}
-
-.main a {
-    color: #596D48;
-    text-decoration: none;
+.main-content>p:nth-child(2) {
+    margin: clamp(10px,3vw,40px)
+            0 
+            clamp(10px,4vw,50px)
+            var(--main-content-padding);
 }
 
 form {
-    background: white;
-    box-shadow:0px 4px 4px 1px rgba(0, 0, 0, 0.274),0px -1px 10px rgba(0, 0, 0, 0.021) ;
-    padding: 30px var(--main-spacing);
+    margin: clamp(0px,2vw,20px) 0;
+    width: 100%;
+    box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.2),
+                0px -1px 5px rgba(0, 0, 0, 0.01);
+    background-color: var(--form-bg-color);
 }
 
 form p {
+    font-size: var(--text-font-size);
+    font-weight: bold;
     width: 100%;
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin: 0 0 10px 0;
+    max-width: 900px;
+    margin: 1em 0;
 }
 
-form>div {
+.form-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px clamp(20px,50px,60px);
-    max-width: var(--main-max-width);
+    gap: 5px 60px;
+    max-width: 700px;
+    margin: 0 var(--main-content-padding) 1em;
 }
 
-form>div>div {
+.input-container {
+    flex:1;
     display: flex;
     flex-direction: column;
+    height: 60px;
+}
+
+.main-content>div {
+    margin: 0 var(--main-content-padding);
+    font-size:var(--button-font-size);
+}
+
+.main-content div>a {
+    color:var(--button-color);
+    font-weight: bold;
+    text-decoration: none;
 }
 
 label {
+    margin: 2px;
+    font-size: var(--label-font-size);
+    font-weight: 600;
+    color: var(--label-font-color);
     text-transform: uppercase;
-    font-size: 0.7rem;
-    font-weight: 700;
     letter-spacing: 1px;
-    margin: 3px 0;
 }
 
 input {
-    border: 1px solid hsl(0, 0%, 80%);
-    border-radius: 3px;
-    height: 25px;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    height: 28px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+    outline:none;
+    border: 1px solid blue;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 button {
-    background-color:#596D48;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius:7px;
     border: none;
-    padding: 0.5em 2em;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.37);
-    margin-left: var(--main-spacing);
-    margin-top: 1rem;
-    max-width: min(250px,80%);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color:var(--button-color);
+    font-size:var(--button-font-size);
+    font-weight: bold;
+    color: var(--logo-color);
+    padding: min(0.7em,2vw) min(2em,4vw);
+    margin: 0.4em 0;
 }
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.95;
+}
+
+button:active{
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
