@@ -5,9 +5,9 @@
 
 :root {
     --logo-font-size:clamp(2rem,5vw,4rem);
-    --text-font-size:clamp(1.1rem,3vw,1.3rem);
+    --text-font-size:clamp(1.1rem,2vw,1.3rem);
     --label-font-size:clamp(0.6rem,2vw,0.7rem);
-    --button-font-size:clamp(0.7rem,3vw,1rem);
+    --button-font-size:clamp(0.7rem,2vw,1rem);
     --error-font-size:clamp(11px,1vw,13px);
     --logo-color:hsl(0, 0%, 98%);
     --bg-color:hsl(0, 0%, 98%);
@@ -80,16 +80,18 @@ img {
 }
 
 .main-content>p {
-    margin: 0 var(--main-content-padding);
+    margin: clamp(10px,2vw,40px)
+            var(--main-content-padding) 
+            0;
     font-size: var(--text-font-size);
     font-weight: bold;
     max-width: 700px;
 }
 
 .main-content>p:nth-child(2) {
-    margin: clamp(10px,3vw,40px)
+    margin: clamp(10px,2vw,40px)
             0 
-            clamp(10px,4vw,50px)
+            clamp(10px,2vw,50px)
             var(--main-content-padding);
 }
 
@@ -106,7 +108,7 @@ form p {
     font-weight: bold;
     width: 100%;
     max-width: 900px;
-    margin: 1em 0;
+    margin: clamp(10px,3vw,20px) 0;
 }
 
 .form-container {
@@ -215,4 +217,3 @@ button:active{
     transform: translateY(2px);
     box-shadow: none;
 }
-
