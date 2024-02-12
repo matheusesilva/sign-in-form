@@ -22,15 +22,18 @@
                 <p>Let's do this!</p>
                 <div class="input-container">
                     <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="first-name">
+                    <input type="text" id="first-name" name="first-name" pattern="[A-Za-z]{1,}">
+                    <div></div>
                 </div>
                 <div class="input-container">
                     <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="last-name">
+                    <input type="text" id="last-name" name="last-name" pattern="[A-Za-z]{1,}">
+                    <div></div>
                 </div>
                 <div class="input-container">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email">
+                    <div></div>
                 </div>
                 <div class="input-container">
                     <label for="phone">Phone Number</label>
@@ -38,12 +41,13 @@
                 </div>
                 <div class="input-container">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" minlength="8">
+                    <div></div>
                 </div>
                 <div class="input-container">
                     <label for="password-confirm">Confirm Password</label>
                     <input type="password" id="password-confirm" name="password-confirm">
-                    <div class="error"></div>
+                    <div class="error-pswd-confirm"></div>
                 </div>
             </div>
         </form>

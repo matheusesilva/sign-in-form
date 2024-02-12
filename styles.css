@@ -23,6 +23,7 @@ img {
     --text-font-size:clamp(1.1rem,3vw,1.3rem);
     --label-font-size:clamp(0.6rem,2vw,0.7rem);
     --button-font-size:clamp(0.7rem,3vw,1rem);
+    --error-font-size:clamp(11px,1vw,13px);
     --logo-color:hsl(0, 0%, 98%);
     --bg-color:hsl(0, 0%, 98%);
     --form-bg-color:hsl(0, 0%, 100%);
@@ -126,7 +127,7 @@ form p {
 .form-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px 60px;
+    gap: 8px 60px;
     max-width: 700px;
     margin: 0 var(--main-content-padding) 1em;
 }
@@ -169,6 +170,34 @@ input:focus {
     outline:none;
     border: 1px solid blue;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+input:invalid:not(:focus) {
+    background-color: #eec5cb;
+    border: 1px solid red;
+}
+
+input:invalid + div {
+    position: relative;
+    color: red;
+    font-size: var(--error-font-size);
+    padding: 0 2px;
+}
+
+input:invalid + div::after {
+    position: absolute;
+}
+
+input[name*="name"]:invalid + div::after {
+    content: "*Your name must contain only letters.";
+}
+
+input[name="email"]:invalid + div::after {
+    content: "*Your must enter a valid email.";
+}
+
+input[name="password"]:invalid + div::after {
+    content: "*Your must enter at least 8 caracters.";
 }
 
 button {
