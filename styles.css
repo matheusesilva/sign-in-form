@@ -189,11 +189,11 @@ input[id="email"]:invalid + div::after {
 }
 
 input[id="password"]:invalid + div::after {
-    content: "*Your must enter at least 8 caracters.";
+    content: "*Your must enter at least 8 characters.";
 }
 
 input[class="input-error"] + div::after {
-    content: "You must enter the same password."
+    content: "*You must enter the same password."
 }
 
 button {
